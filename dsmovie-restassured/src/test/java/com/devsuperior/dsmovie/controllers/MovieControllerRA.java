@@ -60,17 +60,28 @@ public class MovieControllerRA {
 			.body("content.title[0]", equalTo("Matrix Resurrections"))
 			.body("content.score[0]", is(0.0F))
 			.body("content.count[0]", is(0))
-			.body("content.image[0]", equalTo("https://www.themoviedb.org/t/p/w533_and_h300_bestv2/hv7o3VgfsairBoQFAawgaQ4cR1m.jpg"));
-		
-		
+			.body("content.image[0]", equalTo("https://www.themoviedb.org/t/p/w533_and_h300_bestv2/hv7o3VgfsairBoQFAawgaQ4cR1m.jpg"));	
 	}
 	
 	@Test
-	public void findByIdShouldReturnMovieWhenIdExists() {		
+	public void findByIdShouldReturnMovieWhenIdExists() {	
+		given() 
+		.get("/movies/{id}", existingMovieId)
+	.then()
+		.statusCode(200)
+		.body("id", is(1))
+		.body("title", equalTo("The Witcher"))
+		.body("score", is(4.5F))
+		.body("count", is(2))
+		.body("image", equalTo("https://www.themoviedb.org/t/p/w533_and_h300_bestv2/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg"));
 	}
 	
 	@Test
 	public void findByIdShouldReturnNotFoundWhenIdDoesNotExist() {	
+		given() 
+		.get("/movies/{id}", nonExistingMovieId)
+	.then()
+		.statusCode(404);
 	}
 	
 	@Test
