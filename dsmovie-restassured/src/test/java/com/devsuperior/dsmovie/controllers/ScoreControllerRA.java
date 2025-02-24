@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 public class ScoreControllerRA {
 	
 	@Test
-	public void saveScoreShouldReturnNotFoundWhenMovieIdDoesNotExist() throws Exception {		
+	public void saveScoreShouldReturnNotFoundWhenMovieIdDoesNotExist() throws Exception {
 	}
 	
 	@Test
@@ -13,6 +13,6 @@ public class ScoreControllerRA {
 	}
 	
 	@Test
-	public void saveScoreShouldReturnUnprocessableEntityWhenScoreIsLessThanZero() throws Exception {		
+	public void saveScoreShouldReturnUnprocessableEntityWhenScoreIsLessThanZero() throws Exception {
 	}
 }
